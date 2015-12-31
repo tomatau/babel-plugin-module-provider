@@ -37,6 +37,27 @@ describe('module-provider', () => {
     done()
   })
 
+  it ('should add multiple default import statements', done => {
+
+    const modules = {
+      'a': 'a',
+      'b': 'b',
+      'c': 'c'
+    }
+
+    const actual = compile('const hello ="hello"', modules)
+
+    const expected = `
+      import a from "a";
+      import b from "b";
+      import c from "c";
+      const hello = "hello";
+    `
+
+    assertSame(actual, expected)
+    done()
+  })
+
   it('should add non default import', done => {
 
     const modules = {
@@ -94,6 +115,23 @@ describe('module-provider', () => {
 
     assertSame(actual, expected)
     done()
+  })
 
+  it('should add default and non-default statements', done => {
+
+    const modules = {
+      "@cycle/core": "Cycle",
+      "@cycle/dom": ["makeDOMDriver, h, svg"]
+    }
+
+    const actual = compile('const hello = "hello"', modules)
+
+    const expected = `
+      import Cycle from "@cycle/core";
+      import {makeDOMDriver, h, svg} from "@cycle/dom";
+      const hello = "hello";
+    `
+    assertSame(actual, expected)
+    done()
   })
 })

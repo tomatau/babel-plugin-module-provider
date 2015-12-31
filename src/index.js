@@ -1,5 +1,8 @@
 const isEmpty = o => !Object.keys(o).length
 
+const makeSpecifier = t => x =>
+  t.importSpecifier(t.identifier(x), t.identifier(x))
+
 export default ({types: t}) => ({
   visitor: { Program: {
     exit: ({node, scope}, state) => {
@@ -15,12 +18,12 @@ export default ({types: t}) => ({
       const nonDefaultImport = binding => {
 
         return t.importDeclaration(
-          modules[binding].map(x => t.importSpecifier(t.identifier(x), t.identifier(x))),
+          modules[binding].map(makeSpecifier(t)),
           t.stringLiteral(binding)
         )
       }
 
-      Object.keys(modules).forEach(binding => {
+      Object.keys(modules).reverse().forEach(binding => {
         if(!scope.hasBinding(modules[binding]) && !Array.isArray(modules[binding])) {
           node.body.unshift(
             defaultImport(binding)
