@@ -11,7 +11,7 @@ This plugin simply adds imports to the top of all of your files so you can spend
 {
   "presets": ["es2015"],
   "plugins": [
-    ["modules-provider", {
+    ["module-provider", {
       "@cycle/core": "Cycle",
       "@cycle/dom": "CycleDOM"
     }]
@@ -31,7 +31,7 @@ import CycleDOM from "@cycle/core";
 {
   "presets": ["es2015"],
   "plugins": [
-    ["modules-provider", {
+    ["module-provider", {
       "@cycle/dom": ["div", "h2", "h4"]
     }]
   ]
