@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-module-provider",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Imports modules for every file.",
   "main": "lib/index.js",
   "scripts": {
