@@ -21,7 +21,7 @@ This plugin simply adds imports to the top of all of your files so you can spend
 This configuration will put this at the top of your files
 ```js
 import Cycle from "@cycle/core";
-import CycleDOM from "@cycle/core";
+import CycleDOM from "@cycle/dom";
 ```
 
 #### Non-default imports:
