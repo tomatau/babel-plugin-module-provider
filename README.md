@@ -1,5 +1,7 @@
 # Module Provider
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tomatau/babel-plugin-module-provider.svg)](https://greenkeeper.io/)
+
 This plugin simply adds imports to the top of all of your files so you can spend more time writing the code that matters.
 
 ## Examples
